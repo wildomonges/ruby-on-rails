@@ -1,6 +1,6 @@
 # README
 
-In this folder, I want to share with you some screenshots of my personal project named FacilCompro.<br/>
+In this folder, I want to share with you some screenshots and some ruby codes of my personal project named FacilCompro.<br/>
 It is an ecommerce application I developed between the years 2016 ~ 2017 completly alone from zero.<br/>
 I used the following technologies in the development <br/>
 . Ruby on Rails 4.0 <br/>
@@ -9,6 +9,7 @@ I used the following technologies in the development <br/>
 . Bootstrap, HTML5, SaaS <br/>
 . Sentry.io as log service <br/>
 . Prawn PDF for report generator <br/>
+. Unicorn, Nginx, Digital Ocean VPS
 The main features of the app are: <br/>
 . Home page with an input search <br/>
 . Shopping cart page <br/>

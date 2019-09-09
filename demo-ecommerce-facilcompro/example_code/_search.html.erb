@@ -1,0 +1,17 @@
+<%= search_form_for @search = Product.ransack, url: search_showroom_index_url, html: {class: "form-inline", role: "form", id: 'form-search-string'}, remote: true do |f| %>
+    <div class="input-group" style="width: 100%; display: inline-table;">
+      <%= f.text_field :name_cont, class: 'form-control validate[required] change-placeholder input-search', placeHolder: '¡Hola! ¿Qué estás buscando?' %>
+      <button type="submit" class="fa fa-search btn-search">
+      </button>
+    </div>
+<% end %>
+<script type="text/javascript">
+  $(function () {
+    $('#form-search-string').on("submit", function () {
+      $('#form-search-string').validationEngine('validate', {
+        autoHidePrompt: true,
+        autoHideDelay: 3000
+      });
+    });
+  });
+</script>

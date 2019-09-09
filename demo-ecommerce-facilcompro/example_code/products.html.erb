@@ -1,0 +1,75 @@
+<div class="container main-container headerOffset">
+
+<!-- Main component call to action -->
+
+<div class="row" style="margin-top: 30px;">
+  <div class="breadcrumbDiv col-lg-12">
+    <ul class="breadcrumb">
+      <li><a href="<%=dashboard_index_path%>">Inicio</a></li>
+      <li class="active">Productos</li>
+    </ul>
+  </div>
+</div>
+<!-- /.row  -->
+
+<div class="row">
+
+  <!--left column-->
+
+  <%= render 'showroom/categories' %>
+
+  <!--right column-->
+  <div class="col-lg-9 col-md-9 col-sm-12" id="products-container-id">
+    <div class="w100 clearfix category-top" id="products-header">
+      <%= render 'products_header'%>
+    </div>
+    <!--/.category-top-->
+
+    <div class="w100 productFilter clearfix" style="margin-top: 0px !important;">
+      <p class="pull-left"> Mostrando <strong id="amount-products-showed">0</strong> productos </p>
+    </div>
+    <!--/.productFilter-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  categoryProduct xsResponse clearfix" id="products-container">
+      <%= render 'showroom/products'%>
+    </div>
+    <!--/.categoryProduct || product content end-->
+
+  </div>
+  <!--/right column end-->
+</div>
+<!-- /.row  -->
+</div>
+<!-- /main container -->
+<%= javascript_include_tag 'script'%>
+<script>
+
+    var runLoading = function(){
+      $('html, body').animate({ scrollTop: $('#products-header').offset().top - 150 }, 'fast');
+      $("#products-container").waitMe({ 
+        effect : 'bounce', 
+        text : '',
+        color : '#FF7F27',
+        sizeW : '', 
+        sizeH : '', 
+        source : '' 
+      });  
+    }
+
+    window.onpopstate = function() {
+
+      window.location.href =  '<%=session[:previous_url]%>';
+      return false;
+    };
+
+    $(function(){
+      $("#q_name_cont").focus();
+      $("#navbar-input-id").focus();
+      if (sessionStorage.getItem("search_query") != null && sessionStorage.getItem("search_query").trim() != "" ){
+        $("#navbar-input-id").val(sessionStorage.getItem("search_query").trim());
+        sessionStorage.setItem("search_query","");
+        $("#navbar-search-string").submit();
+      }
+    });
+
+</script>
+<%= javascript_include_tag 'ganalytics' %>
