@@ -1,0 +1,2 @@
+class Pacient < Person
+end

@@ -1,0 +1,2 @@
+class Doctor < Person
+end
