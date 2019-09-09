@@ -1,0 +1,5 @@
+<%-# Display the current user's lists along with any uncompleted items -%>
+
+<% @lists.each do |list| %>
+ <%= render 'show', list: list %>
+<% end %>

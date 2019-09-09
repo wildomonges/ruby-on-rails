@@ -1,0 +1,6 @@
+<h2><%= list.formatted_title %></h2>
+<ul>
+  <% list.available_todo_items.each do |item| %>
+    <li><% item.title %> - <%= link_to I18n.t('actions.done'), complete_item_todo_lists_path(item), method: :put %></li>
+  <% end %>
+</ul>
